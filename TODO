@@ -1,0 +1,17 @@
+
++ Rewrite tree traversal: use dirpointers instead of fullnames;
++ Add config structure
++ Move iconv's stuff to a separate module (file): meet nameconv.[ch]
++ A BUG: a utility should avoid from tree traversal its own destination
+  directory
++ Create man(1) page (man mdoc ; files mkdir.1, stat.1 might serve as
+  examples)
+
+- Bring in Zed Shaw's error handling macros;
+
+- Error handling revisited
+
+- I've to think over variable names (of the entire project)
+
+- Debug verbosity switch is requested
+

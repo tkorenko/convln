@@ -1,0 +1,57 @@
+.Dd October 14, 2015
+.Dt CONVLN 1
+.Os
+.Sh NAME
+.Nm convln
+.Nd filename converter
+.Sh SYNOPSIS
+.Nm
+.Op Fl cv
+.Op Fl D Ar dst
+.Op Fl f Ar code
+.Op Fl t Ar code
+.Ar src
+.Sh DESCRIPTION
+This utility traverses the filesystem tree starting from the
+.Ar src
+directory and builds a parallel tree rooted in a
+.Ar dst 
+directory.  File and directory names are converted using facilities of the
+.Xr iconv 3
+library.
+To conserve disk space, files in the
+.Ar dst
+tree are hardlinked to the corresponding files from the
+.Ar src
+tree.
+.Pp
+The options are as follows:
+.Bl -tag -width indent
+.It Fl c
+As in
+.Xr iconv 1 ,
+characters that cannot be converted are silently discarded.
+.It Fl D Ar dst
+The resulting tree is built starting from
+.Ar dst
+directory.  When ommitted, this utility creates a
+.Nm convln
+directory.
+.It Fl f Ar code
+The source tree names encoding.  Defaults to UTF-8.
+.It Fl t Ar code
+The destination tree names encoding.  Defaults to KOI8-RU.
+.Pp
+Consult the output of
+.Nm iconv Fl l
+for valid
+.Ar code 
+values.
+.Pp
+.El
+.Sh SEE ALSO
+.Xr iconv 1 ,
+.Xr iconv 3
+.Sh AUTHORS
+.An Taras Korenko
+.Aq tarasishche@gmail.com .
